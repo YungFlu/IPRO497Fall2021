@@ -1,7 +1,11 @@
 import React, {useState} from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 function Class() {
+  const location = useLocation();
+  //window.alert(location.state.dept + " " + location.state.course);
+  console.log(location.state.dept + " " + location.state.course)
+  
   return (
     <div className="class">
       <div class="container">

@@ -5,6 +5,7 @@ import Class from "./Class"
 import {Link} from 'react-router-dom'
 
 function Home() {
+    
     let history = useHistory();
       /** "selected" here is state variable which will hold the
       * value of currently selected dropdown.
@@ -29,12 +30,11 @@ function Home() {
       
      };
 
-
-     const handleClick = () =>{ 
-      //<Link to="/class" className="btn btn-primary">Sign up</Link>
-      //window.alert(selected + " " + selected2)
-      history.push('/class')
-     }
+     const handleClick = () => { 
+        //check if dropdowns are empty
+        history.push("/class", { dept: selected, course: selected2 })
+        
+     };
      
      /** Different arrays for different dropdowns */
      const deptList = ["CS", "MATH", "IPRO"]
