@@ -1,4 +1,13 @@
 import React, {useState} from "react";
+import { Redirect } from "react-router";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+//import { Navigation, Footer, Home, About } from "./components";
+import Navigation from "./components/Navigation";
+import Home from "./components/Home"
+import Footer from "./components/Footer"
+import About from "./components/About"
+
+
 export default function App () {
   /** "selected" here is state variable which will hold the
    * value of currently selected dropdown.
@@ -18,7 +27,9 @@ export default function App () {
 
   const finalSelectHandler = (event) => {
     setSelected2(event.target.value);
-    //window.alert(event.target.value)
+    //const url = '/' + selected + '-' + event.target.value
+    //<Redirect to=url />
+    //window.alert(selected)
 
   };
   
@@ -66,6 +77,15 @@ export default function App () {
         alignItems: "center"
       }}
     >
+
+      <Router>
+        <Navigation />
+        <Switch>
+          <Route path="/" exact component={() => <Home />} />
+          <Route path="/about" exact component={() => <About />} />
+        </Switch>
+        <Footer />
+      </Router>
       <h1> What course are you interested in? </h1>
       <form>
         <div>
