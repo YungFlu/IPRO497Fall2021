@@ -1,13 +1,14 @@
 import React, {useState} from "react";
 import { Redirect } from "react-router";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
+import Class from "./Class"
+import {Link} from 'react-router-dom'
 
 function Home() {
-
-    /** "selected" here is state variable which will hold the
-    * value of currently selected dropdown.
-    */
-
+    let history = useHistory();
+      /** "selected" here is state variable which will hold the
+      * value of currently selected dropdown.
+      */
      const [selected, setSelected] = useState("");
   
      /** Function that will set different values to state variable
@@ -24,14 +25,28 @@ function Home() {
        setSelected2(event.target.value);
        //const url = '/' + selected + '-' + event.target.value
        //<Redirect to=url />
-       //selected is the dept
        //window.alert(event.target.value)
-       <Redirect to="/class" />
+      
      };
+
+
+     const handleClick = () =>{ 
+      //<Link to="/class" className="btn btn-primary">Sign up</Link>
+      //window.alert(selected + " " + selected2)
+      history.push('/class')
+     }
      
      /** Different arrays for different dropdowns */
      const deptList = ["CS", "MATH", "IPRO"]
-     const courseNums = [[100, 200, 300], [400, 500, 600], [700, 800, 900]]
+     const courseNums = [[100, 104, 105, 110, 115, 116, 201, 330, 331, 340, 
+      350, 351, 397, 401, 402, 403, 406, 411, 422, 425, 429, 430, 440, 442,
+      443, 445, 447, 450, 451, 455, 456, 458, 470, 480, 481, 482, 484, 485,
+      487, 491, 492, 495, 497, 511, 512, 513, 520, 521, 522, 525, 528, 529,
+      530, 531, 532, 533, 535, 536, 537, 538, 539, 540, 541, 542, 544, 545,
+      546, 547, 548, 549, 550, 551, 552, 553, 554, 555, 556, 557, 558, 559,
+      560, 561, 562, 565, 566, 570, 572, 577, 578, 579, 580, 581, 582, 583,
+      584, 585, 586, 587, 588, 589, 590, 591, 594, 595, 597, 612, 630, 642,
+      681, 689, 691, 695, 750, 763], [400, 500, 600], [497]]
      
      /** Type variable to store different array for different dropdown */
      let type = null;
@@ -46,30 +61,6 @@ function Home() {
          break
        }
      }
-     
-     /*
-       <h1> What course are you interested in? </h1>
-         <form>
-           <div>
-             {
-              <select id = "DeptList" onChange={changeSelectOptionHandler}>
-              <option>Choose...</option>
-              <option>CS</option>
-              <option>MATH</option>
-              <option>IPRO</option>
-   
-            </select>
-          </div>
-          <div>
-            <select onChange={finalSelectHandler}>
-              {
-                options
-              }
-            </select>
-          </div>
-        </form>
-   
-     */
    
      /*
      var sel = document.getElementById('DeptList');
@@ -119,16 +110,25 @@ function Home() {
               <div>
                 <select onChange={finalSelectHandler}>
                   {
+                    
                     options
                   }
                 </select>
+
+                
+              </div>
+              <div>
+                <button onClick={handleClick}>
+                  See Class
+                </button>
               </div>
             </form>
-
+            
           </div>
         </div>
       </div>
     </div>
+    
   );
 }
 

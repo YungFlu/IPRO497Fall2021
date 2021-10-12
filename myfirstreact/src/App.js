@@ -1,12 +1,11 @@
 import React, {useState} from "react";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//import { Navigation, Footer, Home, About } from "./components";
 import Navigation from "./components/Navigation";
 import Home from "./components/Home"
 import Footer from "./components/Footer"
 import About from "./components/About"
-
+import Class from "./components/Class"
 
 export default function App () {
   return (
@@ -17,12 +16,13 @@ export default function App () {
         alignItems: "center"
       }}
     >
-
+      
       <Router>
         <Navigation />
         <Switch>
           <Route path="/" exact component={() => <Home />} />
           <Route path="/about" exact component={() => <About />} />
+          <Route path="/class" exact component={() => <Class />} />
         </Switch>
         <Footer />
       </Router>
