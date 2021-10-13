@@ -1,35 +1,40 @@
 import React, {useState} from "react";
 import { useHistory, useLocation } from "react-router-dom";
 
+
 function Class() {
   const location = useLocation();
-  //window.alert(location.state.dept + " " + location.state.course);
+
   console.log(location.state.dept + " " + location.state.course)
+  const dept = location.state.dept;
+  const course = location.state.course;
+  
+  
+  const stuff = function(){
+    document.getElementById("Course Title").innerHTML = dept + " " + course;
+  }
   
   return (
     <div className="class">
       <div class="container">
         <div class="row align-items-center my-5">
-          <div class="col-lg-7">
-            <img
-              class="img-fluid rounded mb-4 mb-lg-0"
-              src="http://placehold.it/900x400"
-              alt=""
-            />
-          </div>
           <div class="col-lg-5">
-            <h1 class="font-weight-light">Class</h1>
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book.
-            </p>
+            <h1 id="Course Title" class="font-weight-light">Class</h1>
+            
+            <ul>
+              <li>Coffee</li>
+              <li>Tea</li>
+              <li>Milk</li>
+            </ul>
+            
           </div>
         </div>
       </div>
     </div>
   );
+
+  
+  
 }
 
 export default Class;
