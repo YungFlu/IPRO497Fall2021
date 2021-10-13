@@ -13,6 +13,7 @@
 **Customer Demographic**
 
 - IIT students who are unfamiliar with courses taught by certain professors
+- IIT freshman/new students, students who strive to generally be successful in their classes and are strategic about their classwork
 - IIT College professors and administrators who want students to succeed and who want their students to receive advice from former students
 
 **Customer Persona**
