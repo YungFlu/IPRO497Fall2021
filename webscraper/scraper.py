@@ -97,8 +97,10 @@ for courseblock in courseblocks:
 
 
 with open("CS_dpt.json", "w") as outfile:
-    json.dump(classes, outfile)
+    json.dump(classes, outfile,indent=4,sort_keys=True)
 
+
+#json.dumps(parsed, indent=4, sort_keys=True))
 
 
 #print(prereqs.text)
