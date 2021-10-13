@@ -2,7 +2,12 @@
 //dependencies
 sudo apt install python3-venv -y
 sudo apt install python3-dev -y
+sudo apt-get install python3-pip -y
 sudo apt-get install libpq-dev -y
+
+//setup venv
+sudo python3 -m venv venv
+source venv/bin/activate
 
 //postgres setup
 dpkg -l | grep postgresql
@@ -16,12 +21,8 @@ sudo -u postgres psql -c "CREATE USER root WITH SUPERUSER"
 sudo -u postgres psql -c "CREATE USER admin WITH PASSWORD 'admin123'"
 sudo -u postgres psql -c "CREATE DATABASE database"
 
-//setup venv
-sudo python3 -m venv venv
-source venv/bin/activate
-
 //run migrations and startup db
 sudo pip install -r requirements.txt
 sudo python3 manage.py migrate
 export DJANGO_SUPERUSER_PASSWORD=admin123; sudo --preserve-env=DJANGO_SUPERUSER_PASSWORD python3 manage.py createsuperuser --no-input --username 'admin' --email 'admin@xyz.com' 
-sudo python3 manage.py runserver
+sudo python3 /tmp/projectx/projectx/manage.py runserver
