@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
-import Class from "./Class"
-import {Link} from 'react-router-dom'
+import Class from "./Class";
+import {Link} from 'react-router-dom';
 
 function Home() {
-    
+
     let history = useHistory();
       /** "selected" here is state variable which will hold the
       * value of currently selected dropdown.
@@ -61,17 +61,6 @@ function Home() {
          break
        }
      }
-   
-     /*
-     var sel = document.getElementById('DeptList');
-     for(var i = 0; i < deptList.length; i++) {
-       var opt = document.createElement('option');
-       opt.innerHTML = deptList[i];
-       opt.value = deptList[i];
-       if (sel != null)
-       sel.appendChild(opt);
-     }
-     */ 
      
      /** If "Type" is null or undefined then options will be null,
       * otherwise it will create a options iterable based on our array
@@ -79,6 +68,13 @@ function Home() {
      if (type) {
        options = type.map((el) => <option key={el}>{el}</option>);
      }
+     
+     const [data, setData] = useState('');
+  
+     const passData = () => {
+      return "yes";
+     }
+
   return (
     <div className="home">
       <div class="container">

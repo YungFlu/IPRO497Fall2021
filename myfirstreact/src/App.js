@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, Component} from "react";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Navigation from "./components/Navigation";
@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 import About from "./components/About"
 import Class from "./components/Class"
+
 
 export default function App () {
   return (
