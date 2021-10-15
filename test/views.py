@@ -5,7 +5,7 @@ from .models import Classes, Posts
 
 
 class ClassesView(viewsets.ModelViewSet):
-    serializer_Classes = ClassesSerializer
+    serializer_class = ClassesSerializer
     queryset = Classes.objects.all()
 
 
