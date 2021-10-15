@@ -1,14 +1,14 @@
 from rest_framework import serializers
-from .models import Class, Post
+from .models import Classes, Posts
 
 
-class ClassSerializer(serializers.ModelSerializer):
+class ClassesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Class
+        model = Classes
         fields = ("id", "name")
 
 
-class PostSerializer(serializers.ModelSerializer):
+class PostsSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Post
+        model = Posts
         fields = ("id", "name", "contents")

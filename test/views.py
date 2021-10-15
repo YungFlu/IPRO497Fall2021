@@ -1,14 +1,14 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .serializers import ClassSerializer, PostSerializer
-from .models import Class, Post
+from .serializers import ClassesSerializer, PostsSerializer
+from .models import Classes, Posts
 
 
-class ClassView(viewsets.ModelViewSet):
-    serializer_class = ClassSerializer
-    queryset = Class.objects.all()
+class ClassesView(viewsets.ModelViewSet):
+    serializer_Classes = ClassesSerializer
+    queryset = Classes.objects.all()
 
 
-class PostView(viewsets.ModelViewSet):
-    serializer_class = PostSerializer
-    queryset = Post.objects.all()
+class PostsView(viewsets.ModelViewSet):
+    serializer_class = PostsSerializer
+    queryset = Posts.objects.all()

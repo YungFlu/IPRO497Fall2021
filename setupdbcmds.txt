@@ -25,4 +25,4 @@ sudo -u postgres psql -c "CREATE DATABASE database"
 sudo pip install -r requirements.txt
 sudo python3 manage.py migrate
 export DJANGO_SUPERUSER_PASSWORD=admin123; sudo --preserve-env=DJANGO_SUPERUSER_PASSWORD python3 manage.py createsuperuser --no-input --username 'admin' --email 'admin@xyz.com' 
-sudo python3 /tmp/projectx/projectx/manage.py runserver
+sudo python3 manage.py runserver

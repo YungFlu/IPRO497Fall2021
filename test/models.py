@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Class(models.Model):
+class Classes(models.Model):
     # id = models.AutoField(primary_key=True)
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=40)
@@ -13,12 +13,12 @@ class Class(models.Model):
         ordering = ("name",)
 
 
-class Post(models.Model):
+class Posts(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=120)
     contents = models.CharField(max_length=1000)
-    Class = models.ForeignKey(
-        Class, on_delete=models.CASCADE, related_name="class+"
+    Classes = models.ForeignKey(
+        Classes, on_delete=models.CASCADE, related_name="Classes+"
     )
 
     def __str(self):

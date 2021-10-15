@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Class',
+            name='Classes',
             fields=[
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=40)),
@@ -21,12 +21,12 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
-            name='Post',
+            name='Posts',
             fields=[
                 ('id', models.IntegerField(primary_key=True, serialize=False)),
                 ('name', models.CharField(max_length=40)),
                 ('contents', models.CharField(max_length=1000)),
-                ('class', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='class+', to='test.class')),
+                ('Classes', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='Classes+', to='test.Classes')),
             ],
             options={
                 'ordering': ('name',),

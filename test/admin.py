@@ -1,15 +1,15 @@
 from django.contrib import admin
-from .models import Class
-from .models import Post
+from .models import Classes
+from .models import Posts
 
 
-class ClassAdmin(admin.ModelAdmin):
+class ClassesAdmin(admin.ModelAdmin):
     list_display = ("id", "name")
 
 
-class PostAdmin(admin.ModelAdmin):
+class PostsAdmin(admin.ModelAdmin):
     list_display = ("id", "name", "contents")
 
 
-admin.site.register(Class, ClassAdmin)
-admin.site.register(Post, PostAdmin)
+admin.site.register(Classes, ClassesAdmin)
+admin.site.register(Posts, PostsAdmin)

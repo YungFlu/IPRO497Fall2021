@@ -19,7 +19,7 @@ from rest_framework import routers
 from test import views
 
 router = routers.DefaultRouter()
-router.register(r"classes", views.ClassView, "class")
-router.register(r"posts", views.PostView, "post")
+router.register(r"Classes", views.ClassesView, "Classes")
+router.register(r"Posts", views.PostsView, "Posts")
 
 urlpatterns = [path("admin/", admin.site.urls), path("api/", include(router.urls))]
