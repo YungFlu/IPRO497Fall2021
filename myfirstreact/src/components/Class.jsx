@@ -34,11 +34,6 @@ class Class extends Component {
             {Posts.contents}
           </span>
         </li>
-        <li key = {Posts.id}>
-          <span title = {Posts.Classes}>
-            {Posts.Classes}
-          </span>
-        </li>
       </div>
     ));
   };
@@ -68,7 +63,18 @@ class Class extends Component {
   }
 
   handlePost = (event) => {
+    this.setState({class: this.class})
     console.log(this.state.name + " " + this.state.postComment)
+    axios
+      .post("http://localhost:8000/api/Posts/", 
+      {
+        id: 2,
+        name: this.state.name,
+        contents: this.state.postComment,
+        Classes: this.state.class
+      })
+      .then(res => this.setState )
+    this.refreshPosts();
   }
 
   render() {
