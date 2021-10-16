@@ -34,6 +34,11 @@ class Class extends Component {
             {Posts.contents}
           </span>
         </li>
+        <li key = {Posts.id}>
+          <span title = {Posts.Classes}>
+            {Posts.Classes}
+          </span>
+        </li>
       </div>
     ));
   };
@@ -76,7 +81,7 @@ class Class extends Component {
             <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
                 <form onSubmit={this.handlePost}>
-                  <label>
+                  <label> 
                     <input type="text" value={this.state.value} onChange={this.handleName} />
                     <input type="text" value={this.state.value} onChange={this.handleComment} />
                   </label>
