@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router
 import Class from "./Class";
 import {Link} from 'react-router-dom';
 
-function Home() {
+function Home(props) {
 
     let history = useHistory();
       /** "selected" here is state variable which will hold the
@@ -24,6 +24,7 @@ function Home() {
    
      const finalSelectHandler = (event) => {
        setSelected2(event.target.value);
+       console.log("finalSelect: " + event.target.value)
        //const url = '/' + selected + '-' + event.target.value
        //<Redirect to=url />
        //window.alert(event.target.value)
@@ -31,7 +32,11 @@ function Home() {
      };
 
      const handleClick = () => { 
-        //check if dropdowns are empty
+        //check if dropdowns are empty??
+        //bug where they MUST click on the dropdown for course number
+        console.log(selected)
+        console.log("Selected 2: " + selected2)
+        console.log("Final course: " + selected + selected2)
         history.push("/class", { dept: selected, course: selected2 })
         
      };
@@ -69,11 +74,6 @@ function Home() {
        options = type.map((el) => <option key={el}>{el}</option>);
      }
      
-     const [data, setData] = useState('');
-  
-     const passData = () => {
-      return "yes";
-     }
 
   return (
     <div className="home">
@@ -91,27 +91,20 @@ function Home() {
 
             <form>
               <div>
-                {/** Bind changeSelectOptionHandler to onChange method of select.
-                 * This method will trigger every time different
-                 * option is selected.
-                 */}
                 <select id = "DeptList" onChange={changeSelectOptionHandler}>
                   <option>Choose...</option>
                   <option>CS</option>
                   <option>MATH</option>
                   <option>IPRO</option>
-
                 </select>
               </div>
               <div>
                 <select onChange={finalSelectHandler}>
                   {
-                    
                     options
                   }
-                </select>
-
-                
+                  {console.log("Options = " + options)}
+                </select>    
               </div>
               <div>
                 <button onClick={handleClick}>
@@ -119,7 +112,6 @@ function Home() {
                 </button>
               </div>
             </form>
-            
           </div>
         </div>
       </div>

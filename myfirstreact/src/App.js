@@ -6,7 +6,7 @@ import Home from "./components/Home"
 import Footer from "./components/Footer"
 import About from "./components/About"
 import Class from "./components/Class"
-
+import Home2 from "./components/Home2"
 
 export default function App () {
   return (

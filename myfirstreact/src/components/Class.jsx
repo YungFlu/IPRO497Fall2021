@@ -1,49 +1,25 @@
 import React, {useState, Component} from "react";
 import { render } from "react-dom";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory, useLocation, withRouter } from "react-router-dom";
 import axios from "axios";
 import Home from "./Home"
-/*
-function Course(){
-  const location = useLocation();
-  const dept = location.state.dept;
-  const course = location.state.course;
-  return dept + " " + course;
-}
-*/
 
-export default class Class extends Component {
+class Class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       postList: [],
-      classList: []
+      classList: [],
+      class: this.props.location.state.dept + this.props.location.state.course,
+      name: "",
+      postComment: "",
     };
+    console.log(this.props.location.state)
   }
-
-  /*
-  Course = () => {
-    const location = this.props.useLocation();
-    const dept = location.state.dept;
-    const course = location.state.course;
-    return dept + " " + course;
-  }
-  */
   
-  
-  Course = () => {
-    const location = this.props.passData;
-    //const dept = location.state.dept;
-    //const course = location.state.course;
-  
-    return location;
-  }
   
 
   renderPost = () => {
-    const yes = this.Course();
-    console.log(yes + "sadads");
-
     this.refreshPosts();
     return this.state.postList.map(Posts => (
       <div>
@@ -62,12 +38,14 @@ export default class Class extends Component {
     ));
   };
 
+  
   refreshClasses = () => {
     axios
       .get("http://localhost:8000/api/Classes/")
       .then(res => this.setState({ classList: res.data }))
       .catch(err => console.log(err));
   };
+  
 
   refreshPosts = () => {
     axios
@@ -76,6 +54,18 @@ export default class Class extends Component {
       .catch(err => console.log(err));
   };
 
+  handleName = (event) => {
+    this.state.name = event.target.value
+  }
+
+  handleComment = (event) => {
+    this.state.postComment = event.target.value
+  }
+
+  handlePost = (event) => {
+    console.log(this.state.name + " " + this.state.postComment)
+  }
+
   render() {
     return (
     
@@ -83,11 +73,15 @@ export default class Class extends Component {
       <div class="container">
         <div class="row align-items-center my-5">
           <div class="col-lg-5">
-            <h1 id="Course Title" class="font-weight-light">Class</h1>
+            <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
-                <button onClick="">
-                  Create Post
-                </button>
+                <form onSubmit={this.handlePost}>
+                  <label>
+                    <input type="text" value={this.state.value} onChange={this.handleName} />
+                    <input type="text" value={this.state.value} onChange={this.handleComment} />
+                  </label>
+                    <input type="submit" value="Submit" />
+                </form>
               </div>
               {this.renderPost()}
           </div>
@@ -100,4 +94,4 @@ export default class Class extends Component {
 
   
   
-}
+}export default withRouter(Class)
