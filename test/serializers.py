@@ -11,4 +11,4 @@ class ClassesSerializer(serializers.ModelSerializer):
 class PostsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Posts
-        fields = ("id", "name", "contents", "classes")
+        fields = ("id", "name", "contents", "Classes")
