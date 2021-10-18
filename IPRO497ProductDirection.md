@@ -16,6 +16,12 @@
 - IIT freshman/new students, students who strive to generally be successful in their classes and are strategic about their classwork
 - IIT College professors and administrators who want students to succeed and who want their students to receive advice from former students
 
+**Customers(s)**
+
+- IIT first-year undergraduates or transfer students who want to learn how to succeed in their classes in the current semester, are unfamiliar with courses taught by certain professors, and/or are strategic about their classwork
+- IIT professors and administrators who want their incoming students to understand what the course is about and what they'll need to do to succeed and who want their students to receive advice from former students
+
+
 **Customer Persona**
 
 Lee Sang-hyeok
