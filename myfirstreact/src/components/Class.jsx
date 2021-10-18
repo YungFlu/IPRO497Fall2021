@@ -3,6 +3,7 @@ import { render } from "react-dom";
 import { useHistory, useLocation, withRouter } from "react-router-dom";
 import axios from "axios";
 import Home from "./Home"
+import "../styles.scss" 
 
 class Class extends Component {
   constructor(props) {
@@ -15,25 +16,22 @@ class Class extends Component {
       postComment: "",
     };
     console.log(this.props.location.state)
-  }
-  
-  
+  }  
 
   renderPost = () => {
     this.refreshPosts();
     return this.state.postList.map(Posts => (
-      <div>
-        <li key = {Posts.id}>
-          <span title = {Posts.name}>
-            {Posts.name}
+      <div className="divStyle">
+        <h4 key = {Posts.id}>
+          <span  title = {Posts.name}>
+                {Posts.name}
           </span>
-
-        </li>
-        <li key = {Posts.id}>
-          <span title = {Posts.contents}>
+        </h4>
+        <h5 key = {Posts.id}>
+          <p title = {Posts.contents}>
             {Posts.contents}
-          </span>
-        </li>
+          </p>
+        </h5>
       </div>
     ));
   };
@@ -87,14 +85,21 @@ class Class extends Component {
             <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
                 <form onSubmit={this.handlePost}>
+
                   <label> 
+                    <div>
                     <input type="text" value={this.state.value} onChange={this.handleName} />
+                    </div>
+                    <div>
                     <input type="text" value={this.state.value} onChange={this.handleComment} />
+                    </div>
                   </label>
                     <input type="submit" value="Submit" />
                 </form>
               </div>
+              <div >
               {this.renderPost()}
+              </div>
           </div>
         </div>
       </div>
