@@ -25,6 +25,7 @@ function Home(props) {
      const finalSelectHandler = (event) => {
        setSelected2(event.target.value);
        console.log("finalSelect: " + event.target.value)
+       localStorage.setItem()
        //const url = '/' + selected + '-' + event.target.value
        //<Redirect to=url />
        //window.alert(event.target.value)
