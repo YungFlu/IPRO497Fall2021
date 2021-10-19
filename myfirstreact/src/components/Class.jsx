@@ -11,13 +11,27 @@ class Class extends Component {
     this.state = {
       postList: [],
       classList: [],
-      class: this.props.location.state.dept + this.props.location.state.course || localStorage.getItem("Class"),
+      class: localStorage.getItem("Class") || this.props.location.state.dept + this.props.location.state.course,
       name: "",
       postComment: "",
     };
     console.log(this.props.location.state)
   }  
 
+  /*
+  renderClassName = () => {
+    console.log("I AM IN RENDERCLASSNAME")
+    if (this.props.location.state.dept != null && this.props.location.state.course != null){
+      document.getElementById("Course Title").innerHTML = this.props.location.state.dept + this.props.location.state.course;
+      this.state.class = this.props.location.state.dept + this.props.location.state.course;
+      console.log("renderClassName1: " + this.props.location.state.dept + this.props.location.state.course)
+    }else{
+      document.getElementById("Course Title").innerHTML = localStorage.getItem("Class")
+      this.state.class = localStorage.getItem("Class")
+      console.log("renderClassName2: " + localStorage.getItem("Class"))
+    }
+  }
+  */
 
   renderPost = () => {
     this.refreshPosts();

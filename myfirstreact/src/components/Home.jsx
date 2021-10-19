@@ -25,6 +25,7 @@ function Home(props) {
      const finalSelectHandler = (event) => {
        setSelected2(event.target.value);
        console.log("finalSelect: " + event.target.value)
+       
        //const url = '/' + selected + '-' + event.target.value
        //<Redirect to=url />
        //window.alert(event.target.value)
@@ -37,6 +38,7 @@ function Home(props) {
         console.log(selected)
         console.log("Selected 2: " + selected2)
         console.log("Final course: " + selected + selected2)
+        localStorage.setItem("Class", selected + selected2)
         history.push("/class", { dept: selected, course: selected2 })
         
      };
