@@ -4,11 +4,11 @@ from .models import Posts
 
 
 class ClassesAdmin(admin.ModelAdmin):
-    list_display = ("classCode", "department","className","classDesc","classCreds","classPrereqs")
+    list_display = ("id", "name")
 
 
 class PostsAdmin(admin.ModelAdmin):
-    list_display = ("postID", "postTitle", "postText","author","timestmp")
+    list_display = ("id", "name", "contents")
 
 
 admin.site.register(Classes, ClassesAdmin)

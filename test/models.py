@@ -1,34 +1,28 @@
 from django.db import models
-import datetime
 
 
 class Classes(models.Model):
     # id = models.AutoField(primary_key=True)
-    classCode = models.CharField(primary_key=True,max_length=40)
-    department = models.CharField(max_length=40)
-    className = models.CharField(max_length=255)
-    classDesc = models.CharField(max_length=4095)
-    classCreds = models.CharField(max_length=255)
-    classPrereqs = models.CharField(max_length=255)
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=40)
 
     def __str__(self):
-        return self.classCode
+        return self.name
 
     class Meta:
-        ordering = ("classCode",)
+        ordering = ("name",)
 
 
 class Posts(models.Model):
-    postID = models.IntegerField(primary_key=True)
-    postTitle = models.CharField(max_length=255)
-    postText = models.CharField(max_length=4095)
-    author = models.CharField(max_length=255)
-    timestmp = models.DateField(("Date"), default=datetime.date.today)
-    classes = models.ForeignKey(
-        Classes, on_delete=models.CASCADE
-        )
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=120)
+    contents = models.CharField(max_length=1000)
+    Classes = models.ForeignKey(
+        Classes, on_delete=models.CASCADE, related_name="Classes+"
+    )
+
     def __str(self):
-        return self.postTitle
+        return self.name
 
     class Meta:
-        ordering = ("postTitle",)
+        ordering = ("name",)
