@@ -78,7 +78,6 @@ class Class extends Component {
 
   
   
-  
 
   handlePost = Posts => {
     this.setState({class: this.state.class})
@@ -90,26 +89,43 @@ class Class extends Component {
       id: 2,
       name: this.state.name,
       contents: this.state.postComment,
-      Classes: this.state.class  
+      Classes: this.state.class 
     }
+    
     /*
-    axios
-      .post("http://localhost:8000/api/Posts/", 
-      {
+    axios({
+      method: 'post',
+      url: "http://localhost:8000/api/Posts/",
+      data: {
         id: 2,
         name: this.state.name,
         contents: this.state.postComment,
         Classes: this.state.class
+      }
+    });
+    */
+
+    
+    axios
+      .post("http://localhost:8000/api/Posts/", 
+      {
+        id: 3,
+        name: String(this.state.name),
+        contents: String(this.state.postComment),
+        Classes: 1,//this.state.class
       })
       .then(res => this.refreshPosts())
       .catch(err => console.log("handlePost error: " + err));
-    */
+    
+    /*
     axios
       .post("http://localhost:8000/api/Posts/", Posts)
       .then(res => this.refreshPosts())
       .catch(err => console.log("handlePost error: " + err.response.message));
+    */
     localStorage.setItem('Class', this.state.class);
     //this.refreshPosts();
+    
   }
 
   render() {
