@@ -4,6 +4,7 @@ import { useHistory, useLocation, withRouter } from "react-router-dom";
 import axios from "axios";
 import Home from "./Home"
 import "../styles.scss" 
+import QueryString from "query-string";
 
 class Class extends Component {
   constructor(props) {
@@ -76,8 +77,11 @@ class Class extends Component {
   }
 
   handlePost = (event) => {
-    this.setState({class: this.class})
-    console.log(this.state.name + " " + this.state.postComment)
+    this.setState({class: this.state.class})
+    console.log("handlePost: " + this.state.name + "- " + this.state.postComment)
+    const name = this.state.name;
+    const contents = this.state.postComment;
+    const classes = this.state.class;
     axios
       .post("http://localhost:8000/api/Posts/", 
       {
@@ -86,8 +90,9 @@ class Class extends Component {
         contents: this.state.postComment,
         Classes: this.state.class
       })
-      .then(res => this.setState )
-
+      .then(res => {})//this.setState({ postList: res.data }))
+      .catch(err => console.log("handlePost error: " + err));
+  
     localStorage.setItem('Class', this.state.class);
     this.refreshPosts();
   }
