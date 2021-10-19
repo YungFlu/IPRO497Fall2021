@@ -11,7 +11,7 @@ class Class extends Component {
     this.state = {
       postList: [],
       classList: [],
-      class: localStorage.getItem("Class") || this.props.location.state.dept + this.props.location.state.course,
+      class: this.props.location.state.dept + this.props.location.state.course || localStorage.getItem("Class"),
       name: "",
       postComment: "",
     };
@@ -74,7 +74,7 @@ class Class extends Component {
       })
       .then(res => this.setState )
 
-    localStorage.setItem( 'Class', this.state.class );
+    localStorage.setItem('Class', this.state.class);
     this.refreshPosts();
   }
 
