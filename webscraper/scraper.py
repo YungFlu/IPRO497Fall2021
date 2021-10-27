@@ -1,7 +1,9 @@
+from types import coroutine
 from typing import Text
 import requests
 import json
 from bs4 import BeautifulSoup
+import os
 
 link = "http://bulletin.iit.edu/courses/"
 domain = "http://bulletin.iit.edu"
@@ -71,36 +73,106 @@ courseblocks = soup.find_all("div", {"class":"courseblock"})
 #code = courseblocks[0].find("div", {"class":"noindent coursecode"})
 #print(code.text)
 #s = code.text
+departments_dict = {
+    "AS":"Air Force Aerospace Studies",
+    "AURB":"Architecture and Urbanism",
+    "ARCH":"Architecture",
+    "AAH":"Art and Architectural History",
+    "BIOL":"Biology",   
+    "BME": "Biomedical Engineering",
+    "BUS":"Business",
+    "CHE": "Chemical Engineering",
+    "CHEM" :"Chemistry",
+    "CAE" : "Civil and Architectural Engr",
+    "COM" :"Communications",
+    "CS" : "Computer Science",
+    "CSP" : "Computer Science Prof Master",
+    "ECON" : "Economics",
+    "ECE": "Electrical and Computer Engr",
+    "EG": "Engineering Graphics",
+    "EMGT":"Engineering Management", 
+    "ENVE":"Environmental Engineering",
+    "EMS":"Environmental Management and Sustainability",
+    "FMC":"Financial Markets Compliance",
+    "FDSN":"Food Science and Nutrition",
+    "ENGR":"General Engineering",
+    "HIST":"History",
+    "HUM":"Humanities",
+    "INTM":"Industrial Tech and Mgmt",
+    "ITM":"Information Tech and Mgmt",
+    "ID":"Institute of Design",
+    "IDN":"Institute of Design",
+    "IDX":"Institute of Design",
+    "IPMM":"Intellectual Prop Mgt and Mkts",
+    "IPRO":"Interprofessional Project",
+    "ITMD":"ITM Development",
+    "IDMM":"ITM Management",
+    "ITMO":"ITM Operations",
+    "ITSMS":"ITM Security",
+    "ITMT":"ITM Theory and Technology",
+    "LA":"Landscape Architecture",
+    "UG-LCHS":"Lewis College",
+    "LIT":"Literature",
+    "MCS":"Management Science",
+    "MAX":"Marketing Analytics",
+    "MSF":"Master of Science in Finance",
+    "MS":"Materials Science",
+    "MSED":"Mathematics and Science Educ",
+    "MATH":"Mathematics",
+    "MBA":"MBA Business",
+    "MMAE":"Mechl, Mtrls and Arspc Engrg",
+    "MILS":"Military Science",
+    "NS":"Naval Science",
+    "PHIL":"Philosophy",
+    "PHYS":"Physics",
+    "PS":"Political Science",
+    "PSYC":"Psychology",
+    "PA":"Public Administration",
+    "SCI":"Science",
+    "SSCI": "Social Sciences",
+    "SOC":"Sociology",
+    "SSB":"Stuart School of Business",
+    "SMGT":"Sustainability Management",
+    "TECH":"Technology"
+}
+
+def getDept(classCode):
+    start_idx = classCode.index(" ")
+    return classCode[:start_idx]
 
 
-classes={}
+classes=[]
+
 for courseblock in courseblocks:
     course_det = {}
 
     code = courseblock.find("div", {"class":"noindent coursecode"})
+    codestring = code.text.replace(u'\xa0', u' ')
+    department = departments_dict[getDept(codestring)]
     title = courseblock.find("div", {"class":"noindent coursetitle"})
     desc = courseblock.find("div", {"class":"courseblockdesc"})
     creds = courseblock.find("div", {"class":"noindent courseblockattr hours"})
     prereqs = courseblock.find("div", {"class":"noindent courseblockattr"})
 
-    course_det.update({"course_title":title.text.replace(u'\xa0', u' ')})
-    course_det.update({"course_desc":desc.text.replace(u'\xa0', u' ')})
-    course_det.update({"course_creds":title.text.replace(u'\xa0', u' ')})
+    course_det.update({"courseCode":codestring})
+    course_det.update({"department":department})
+    course_det.update({"courseTitle":title.text.replace(u'\xa0', u' ')})
+    course_det.update({"courseDesc":desc.text.replace(u'\xa0', u' ')})
+    course_det.update({"courseCreds":title.text.replace(u'\xa0', u' ')})
     if(prereqs != None and "Prerequisite(s)" in prereqs.text):
-        course_det.update({"course_prereqs":prereqs.text.replace(u'\xa0', u' ')})
+        course_det.update({"coursePrereqs":prereqs.text.replace(u'\xa0', u' ')})
     else:
-        course_det.update({"course_prereqs":"No Prerequisites"})
+        course_det.update({"coursePrereqs":"No Prerequisites"})
     
-    string = code.text.replace(u'\xa0', u' ')
-    classes.update({string:course_det})
+    classes.append(course_det)
 
 
+filename = os.path.join (os.getcwd(), "..", "CS_dpt.json")
+with open(filename, "w") as outfile:
+    json.dump(classes, outfile,indent=4)
 
-with open("CS_dpt.json", "w") as outfile:
-    json.dump(classes, outfile,indent=4,sort_keys=True)
 
-
-#json.dumps(parsed, indent=4, sort_keys=True))
+#json.dumps(parsed, indent=4, sort_keys=True))c
 
 
 #print(prereqs.text)

@@ -3,18 +3,21 @@ from django.db import models
 
 class Classes(models.Model):
     # id = models.AutoField(primary_key=True)
-    id = models.IntegerField(primary_key=True)
-    name = models.CharField(max_length=40)
+    classCode = models.CharField(max_length=40,primary_key=True)
+    className = models.CharField(max_length=255)
+    classDesc = models.CharField(max_length=4095)
+    classCreds = models.CharField(max_length=255)
+    classPrereqs = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.name
+        return self.className
 
     class Meta:
-        ordering = ("name",)
+        ordering = ("classCode","className","classDesc", "classCreds", "classPrereqs")
 
 
 class Posts(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=120)
     contents = models.CharField(max_length=1000)
     Classes = models.ForeignKey(

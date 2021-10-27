@@ -4,7 +4,7 @@ from .models import Posts
 
 
 class ClassesAdmin(admin.ModelAdmin):
-    list_display = ("id", "name")
+    list_display = ("classCode", "className", "classDesc", "classCreds", "classPrereqs")
 
 
 class PostsAdmin(admin.ModelAdmin):
