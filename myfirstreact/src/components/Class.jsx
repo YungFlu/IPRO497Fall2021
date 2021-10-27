@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./Home"
 import "../styles.scss" 
 import QueryString from "query-string";
+import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 class Class extends Component {
   constructor(props) {
@@ -18,21 +19,6 @@ class Class extends Component {
     };
     console.log(this.props.location.state)
   }  
-
-  /*
-  renderClassName = () => {
-    console.log("I AM IN RENDERCLASSNAME")
-    if (this.props.location.state.dept != null && this.props.location.state.course != null){
-      document.getElementById("Course Title").innerHTML = this.props.location.state.dept + this.props.location.state.course;
-      this.state.class = this.props.location.state.dept + this.props.location.state.course;
-      console.log("renderClassName1: " + this.props.location.state.dept + this.props.location.state.course)
-    }else{
-      document.getElementById("Course Title").innerHTML = localStorage.getItem("Class")
-      this.state.class = localStorage.getItem("Class")
-      console.log("renderClassName2: " + localStorage.getItem("Class"))
-    }
-  }
-  */
 
   renderPost = () => {
     this.refreshPosts();
@@ -51,7 +37,6 @@ class Class extends Component {
       </div>
     ));
   };
-
   
   refreshClasses = () => {
     axios
@@ -61,6 +46,7 @@ class Class extends Component {
   };
   
 
+
   refreshPosts = () => {
     axios
       .get("http://localhost:8000/api/Posts/")
@@ -69,6 +55,7 @@ class Class extends Component {
   };
 
   handleName = (event) => {
+    console.log("handleName: " + event.target.value)
     this.state.name = event.target.value
   }
 
@@ -76,40 +63,23 @@ class Class extends Component {
     this.state.postComment = event.target.value
   }
 
-  
-  
-  
-
   handlePost = Posts => {
     this.setState({class: this.state.class})
     console.log("handlePost: " + this.state.name + "- " + this.state.postComment)
-    const name = this.state.name;
-    const contents = this.state.postComment;
-    const classes = this.state.class;
-    Posts = {
-      id: 2,
-      name: this.state.name,
-      contents: this.state.postComment,
-      Classes: this.state.class  
-    }
-    /*
+    
     axios
       .post("http://localhost:8000/api/Posts/", 
       {
-        id: 2,
-        name: this.state.name,
-        contents: this.state.postComment,
-        Classes: this.state.class
+        id: Math.floor(Math.random() * 10000 + 2),
+        name: String(this.state.name),
+        contents: String(this.state.postComment),
+        Classes: 1, //this.state.class
       })
       .then(res => this.refreshPosts())
       .catch(err => console.log("handlePost error: " + err));
-    */
-    axios
-      .post("http://localhost:8000/api/Posts/", Posts)
-      .then(res => this.refreshPosts())
-      .catch(err => console.log("handlePost error: " + err.response.message));
+    
     localStorage.setItem('Class', this.state.class);
-    //this.refreshPosts();
+    
   }
 
   render() {
@@ -121,18 +91,28 @@ class Class extends Component {
           <div class="col-lg-5">
             <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
-                <form onSubmit={this.handlePost}>
-
-                  <label> 
-                    <div>
-                    <input type="text" value={this.state.value} onChange={this.handleName} />
-                    </div>
-                    <div>
-                    <input type="text" value={this.state.value} onChange={this.handleComment} />
-                    </div>
-                  </label>
-                    <input type="submit" value="Submit" />
-                </form>
+                <Form onSubmit={this.handlePost}>
+                  <Form.Group className="mb-3" controlId="formBasicEmail" onChange = {e => this.setState({ name: e.target.value })}>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="name" placeholder="Enter Name"/>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Professor</Form.Label>
+                    <Form.Control type="professor" placeholder="Enter Professor Name" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Comment</Form.Label>
+                    <Form.Control type="comment" placeholder="Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Anonymous" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+                  
+                
               </div>
               <div >
               {this.renderPost()}
