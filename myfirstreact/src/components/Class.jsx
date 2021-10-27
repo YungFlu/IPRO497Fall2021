@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./Home"
 import "../styles.scss" 
 import QueryString from "query-string";
+import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
 class Class extends Component {
   constructor(props) {
@@ -45,6 +46,7 @@ class Class extends Component {
   };
   
 
+
   refreshPosts = () => {
     axios
       .get("http://localhost:8000/api/Posts/")
@@ -53,6 +55,7 @@ class Class extends Component {
   };
 
   handleName = (event) => {
+    console.log("handleName: " + event.target.value)
     this.state.name = event.target.value
   }
 
@@ -88,18 +91,27 @@ class Class extends Component {
           <div class="col-lg-5">
             <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
-                  <form onSubmit={this.handlePost}>
-
-                    <label> 
-                      <div>
-                      <input type="text" value={this.state.value} onChange={this.handleName} />
-                      </div>
-                      <div>
-                      <input type="text" value={this.state.value} onChange={this.handleComment} />
-                      </div>
-                    </label>
-                      <input type="submit" value="Submit" />
-                  </form>
+                <Form onSubmit={this.handlePost}>
+                  <Form.Group className="mb-3" controlId="formBasicEmail" onChange = {e => this.setState({ name: e.target.value })}>
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control type="name" placeholder="Enter Name"/>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Label>Professor</Form.Label>
+                    <Form.Control type="professor" placeholder="Enter Professor Name" />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicPassword">
+                    <Form.Label>Comment</Form.Label>
+                    <Form.Control type="comment" placeholder="Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="Anonymous" />
+                  </Form.Group>
+                  <Button variant="primary" type="submit">
+                    Submit
+                  </Button>
+                </Form>
+                  
                 
               </div>
               <div >
