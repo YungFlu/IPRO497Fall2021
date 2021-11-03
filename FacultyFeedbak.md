@@ -38,8 +38,11 @@
 
 ## Week 12 ##
 
-## Week 13 ##
+## Week 13 Nov 16 ##
+- Dry Run
 
 ## Week 14 ##
 
-## Week 15 ##
+## Week 15 Nov 30 ##
+
+- Final Presentations (entire class)
