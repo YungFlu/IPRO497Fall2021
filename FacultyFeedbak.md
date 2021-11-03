@@ -28,6 +28,14 @@
 
 ## Week 11 ##
 
+ - SCRUM Lead: Abdullah Moizuddin
+ - Board looks to be in good shape
+ - Good velocity; some good stories were completed this sprint ie DB, API, some front end work
+ - Sounds like you are doing a lot of pairing = awesome!
+ - Note: JSON file load is problematic (top priority)\
+ - Note: customer (student) feedback comments are not sorting chronologically but fix is planned
+ - Good demo: I like that each person who completed a story demo'd their work. Let's repeat!
+
 ## Week 12 ##
 
 ## Week 13 ##
