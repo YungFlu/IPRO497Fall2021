@@ -144,7 +144,8 @@ def getDept(classCode):
 classes=[]
 
 for courseblock in courseblocks:
-    course_det = {}
+    thing = {}
+    fields = {}
 
     code = courseblock.find("div", {"class":"noindent coursecode"})
     codestring = code.text.replace(u'\xa0', u' ')
@@ -154,21 +155,23 @@ for courseblock in courseblocks:
     creds = courseblock.find("div", {"class":"noindent courseblockattr hours"})
     prereqs = courseblock.find("div", {"class":"noindent courseblockattr"})
 
-    course_det.update({"courseCode":codestring})
-    course_det.update({"department":department})
-    course_det.update({"courseTitle":title.text.replace(u'\xa0', u' ')})
-    course_det.update({"courseDesc":desc.text.replace(u'\xa0', u' ')})
-    course_det.update({"courseCreds":title.text.replace(u'\xa0', u' ')})
+    fields.update({"courseCode":codestring})
+    fields.update({"department":department})
+    fields.update({"courseTitle":title.text.replace(u'\xa0', u' ')})
+    fields.update({"courseDesc":desc.text.replace(u'\xa0', u' ')})
+    fields.update({"courseCreds":title.text.replace(u'\xa0', u' ')})
     if(prereqs != None and "Prerequisite(s)" in prereqs.text):
-        course_det.update({"coursePrereqs":prereqs.text.replace(u'\xa0', u' ')})
+        fields.update({"coursePrereqs":prereqs.text.replace(u'\xa0', u' ')})
     else:
-        course_det.update({"coursePrereqs":"No Prerequisites"})
+        fields.update({"coursePrereqs":"No Prerequisites"})
     
-    classes.append(course_det)
+    thing.update({"model":"models.Classes"})
+    thing.update({"fields":fields})
+    classes.append(thing)
 
 
-filename = os.path.join (os.getcwd(), "..", "CS_dpt.json")
-with open(filename, "w") as outfile:
+#filename = os.path.join (os.getcwd(), "..", "CS_dpt.json")
+with open("CS_dpt.json", "w") as outfile:
     json.dump(classes, outfile,indent=4)
 
 
