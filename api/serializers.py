@@ -5,7 +5,7 @@ from .models import Classes, Posts
 class ClassesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Classes
-        fields = ("classCode", "className","classDesc","classDesc","classPrereqs")
+        fields = ("courseCode", "department","courseDesc","courseDesc","coursePrereqs")
 
 
 class PostsSerializer(serializers.ModelSerializer):

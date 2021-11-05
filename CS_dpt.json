@@ -1,6 +1,6 @@
 [
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 100",
             "department": "Computer Science",
@@ -11,7 +11,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 104",
             "department": "Computer Science",
@@ -22,7 +22,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 105",
             "department": "Computer Science",
@@ -33,7 +33,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 110",
             "department": "Computer Science",
@@ -44,7 +44,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 115",
             "department": "Computer Science",
@@ -55,7 +55,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 116",
             "department": "Computer Science",
@@ -66,7 +66,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 201",
             "department": "Computer Science",
@@ -77,7 +77,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 330",
             "department": "Computer Science",
@@ -88,7 +88,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 331",
             "department": "Computer Science",
@@ -99,7 +99,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 340",
             "department": "Computer Science",
@@ -110,7 +110,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 350",
             "department": "Computer Science",
@@ -121,7 +121,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 351",
             "department": "Computer Science",
@@ -132,7 +132,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 397",
             "department": "Computer Science",
@@ -143,7 +143,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 401",
             "department": "Computer Science",
@@ -154,7 +154,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 402",
             "department": "Computer Science",
@@ -165,7 +165,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 403",
             "department": "Computer Science",
@@ -176,7 +176,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 406",
             "department": "Computer Science",
@@ -187,7 +187,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 411",
             "department": "Computer Science",
@@ -198,7 +198,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 422",
             "department": "Computer Science",
@@ -209,7 +209,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 425",
             "department": "Computer Science",
@@ -220,7 +220,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 429",
             "department": "Computer Science",
@@ -231,7 +231,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 430",
             "department": "Computer Science",
@@ -242,7 +242,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 440",
             "department": "Computer Science",
@@ -253,7 +253,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 442",
             "department": "Computer Science",
@@ -264,7 +264,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 443",
             "department": "Computer Science",
@@ -275,7 +275,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 445",
             "department": "Computer Science",
@@ -286,7 +286,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 447",
             "department": "Computer Science",
@@ -297,7 +297,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 450",
             "department": "Computer Science",
@@ -308,7 +308,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 451",
             "department": "Computer Science",
@@ -319,7 +319,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 455",
             "department": "Computer Science",
@@ -330,7 +330,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 456",
             "department": "Computer Science",
@@ -341,7 +341,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 458",
             "department": "Computer Science",
@@ -352,7 +352,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 470",
             "department": "Computer Science",
@@ -363,7 +363,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 480",
             "department": "Computer Science",
@@ -374,7 +374,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 481",
             "department": "Computer Science",
@@ -385,7 +385,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 482",
             "department": "Computer Science",
@@ -396,7 +396,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 484",
             "department": "Computer Science",
@@ -407,7 +407,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 485",
             "department": "Computer Science",
@@ -418,7 +418,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 487",
             "department": "Computer Science",
@@ -429,7 +429,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 491",
             "department": "Computer Science",
@@ -440,7 +440,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 492",
             "department": "Computer Science",
@@ -451,7 +451,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 495",
             "department": "Computer Science",
@@ -462,7 +462,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 497",
             "department": "Computer Science",
@@ -473,7 +473,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 511",
             "department": "Computer Science",
@@ -484,7 +484,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 512",
             "department": "Computer Science",
@@ -495,7 +495,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 513",
             "department": "Computer Science",
@@ -506,7 +506,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 520",
             "department": "Computer Science",
@@ -517,7 +517,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 521",
             "department": "Computer Science",
@@ -528,7 +528,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 522",
             "department": "Computer Science",
@@ -539,7 +539,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 525",
             "department": "Computer Science",
@@ -550,7 +550,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 528",
             "department": "Computer Science",
@@ -561,7 +561,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 529",
             "department": "Computer Science",
@@ -572,7 +572,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 530",
             "department": "Computer Science",
@@ -583,7 +583,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 531",
             "department": "Computer Science",
@@ -594,7 +594,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 532",
             "department": "Computer Science",
@@ -605,7 +605,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 533",
             "department": "Computer Science",
@@ -616,7 +616,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 535",
             "department": "Computer Science",
@@ -627,7 +627,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 536",
             "department": "Computer Science",
@@ -638,7 +638,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 537",
             "department": "Computer Science",
@@ -649,7 +649,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 538",
             "department": "Computer Science",
@@ -660,7 +660,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 539",
             "department": "Computer Science",
@@ -671,7 +671,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 540",
             "department": "Computer Science",
@@ -682,7 +682,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 541",
             "department": "Computer Science",
@@ -693,7 +693,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 542",
             "department": "Computer Science",
@@ -704,7 +704,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 544",
             "department": "Computer Science",
@@ -715,7 +715,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 545",
             "department": "Computer Science",
@@ -726,7 +726,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 546",
             "department": "Computer Science",
@@ -737,7 +737,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 547",
             "department": "Computer Science",
@@ -748,7 +748,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 548",
             "department": "Computer Science",
@@ -759,7 +759,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 549",
             "department": "Computer Science",
@@ -770,7 +770,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 550",
             "department": "Computer Science",
@@ -781,7 +781,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 551",
             "department": "Computer Science",
@@ -792,7 +792,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 552",
             "department": "Computer Science",
@@ -803,7 +803,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 553",
             "department": "Computer Science",
@@ -814,7 +814,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 554",
             "department": "Computer Science",
@@ -825,7 +825,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 555",
             "department": "Computer Science",
@@ -836,7 +836,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 556",
             "department": "Computer Science",
@@ -847,7 +847,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 557",
             "department": "Computer Science",
@@ -858,7 +858,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 558",
             "department": "Computer Science",
@@ -869,7 +869,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 559",
             "department": "Computer Science",
@@ -880,7 +880,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 560",
             "department": "Computer Science",
@@ -891,7 +891,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 561",
             "department": "Computer Science",
@@ -902,7 +902,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 562",
             "department": "Computer Science",
@@ -913,7 +913,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 565",
             "department": "Computer Science",
@@ -924,7 +924,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 566",
             "department": "Computer Science",
@@ -935,7 +935,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 570",
             "department": "Computer Science",
@@ -946,7 +946,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 572",
             "department": "Computer Science",
@@ -957,7 +957,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 577",
             "department": "Computer Science",
@@ -968,7 +968,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 578",
             "department": "Computer Science",
@@ -979,7 +979,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 579",
             "department": "Computer Science",
@@ -990,7 +990,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 580",
             "department": "Computer Science",
@@ -1001,7 +1001,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 581",
             "department": "Computer Science",
@@ -1012,7 +1012,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 582",
             "department": "Computer Science",
@@ -1023,7 +1023,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 583",
             "department": "Computer Science",
@@ -1034,7 +1034,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 584",
             "department": "Computer Science",
@@ -1045,7 +1045,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 585",
             "department": "Computer Science",
@@ -1056,7 +1056,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 586",
             "department": "Computer Science",
@@ -1067,7 +1067,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 587",
             "department": "Computer Science",
@@ -1078,7 +1078,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 588",
             "department": "Computer Science",
@@ -1089,7 +1089,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 589",
             "department": "Computer Science",
@@ -1100,7 +1100,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 590",
             "department": "Computer Science",
@@ -1111,7 +1111,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 591",
             "department": "Computer Science",
@@ -1122,7 +1122,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 594",
             "department": "Computer Science",
@@ -1133,7 +1133,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 595",
             "department": "Computer Science",
@@ -1144,7 +1144,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 597",
             "department": "Computer Science",
@@ -1155,7 +1155,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 612",
             "department": "Computer Science",
@@ -1166,7 +1166,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 630",
             "department": "Computer Science",
@@ -1177,7 +1177,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 642",
             "department": "Computer Science",
@@ -1188,7 +1188,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 681",
             "department": "Computer Science",
@@ -1199,7 +1199,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 689",
             "department": "Computer Science",
@@ -1210,7 +1210,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 691",
             "department": "Computer Science",
@@ -1221,7 +1221,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 695",
             "department": "Computer Science",
@@ -1232,7 +1232,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 750",
             "department": "Computer Science",
@@ -1243,7 +1243,7 @@
         }
     },
     {
-        "model": "models.Classes",
+        "model": "api.Classes",
         "fields": {
             "courseCode": "CS 763",
             "department": "Computer Science",

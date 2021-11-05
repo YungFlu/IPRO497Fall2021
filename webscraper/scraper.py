@@ -165,7 +165,7 @@ for courseblock in courseblocks:
     else:
         fields.update({"coursePrereqs":"No Prerequisites"})
     
-    thing.update({"model":"models.Classes"})
+    thing.update({"model":"api.Classes"})
     thing.update({"fields":fields})
     classes.append(thing)
 
