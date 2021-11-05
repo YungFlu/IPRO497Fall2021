@@ -22,7 +22,7 @@ sudo -u postgres psql -c "CREATE USER admin WITH PASSWORD 'admin123'"
 sudo -u postgres psql -c "CREATE DATABASE database"
 
 //run migrations and startup db
-sudo pip install -r requirements.txt
+sudo pip3 install -r requirements.txt
 sudo python3 manage.py migrate
 
 //run django
