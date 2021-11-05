@@ -1,2 +1,4 @@
 /node_modules/
 /venv/
+/api/__pycache__
+/backend/__pycache__
