@@ -11,7 +11,7 @@ class Classes(models.Model):
     coursePrereqs = models.CharField(max_length=255)
 
     def __str__(self):
-        return self.className
+        return self.courseCode
 
     class Meta:
         ordering = ("courseCode","department","courseTitle","courseDesc", "courseCreds", "coursePrereqs")
