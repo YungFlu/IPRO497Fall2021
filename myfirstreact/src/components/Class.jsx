@@ -93,16 +93,16 @@ class Class extends Component {
               <div>
                 <Form onSubmit={this.handlePost}>
                   <Form.Group className="mb-3" controlId="formBasicEmail" onChange = {e => this.setState({ name: e.target.value })}>
-                    <Form.Label>Name</Form.Label>
+                   
                     <Form.Control type="name" placeholder="Enter Name"/>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Professor</Form.Label>
+                  
                     <Form.Control type="professor" placeholder="Enter Professor Name" />
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
-                    <Form.Label>Comment</Form.Label>
-                    <Form.Control type="comment" placeholder="Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
+                  
+                    <textarea placeholder="Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Anonymous" />
@@ -111,15 +111,13 @@ class Class extends Component {
                     Submit
                   </Button>
                 </Form>
-                  
-                
-              </div>
-              <div >
-              {this.renderPost()}
               </div>
           </div>
         </div>
       </div>
+      <section >
+    {this.renderPost()}
+    </section>
     </div>
     );
   }
