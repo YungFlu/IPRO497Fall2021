@@ -6,6 +6,7 @@ import Home from "./Home"
 import "../styles.scss" 
 import QueryString from "query-string";
 import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { nominalTypeHack } from "prop-types";
 
 class Class extends Component {
   constructor(props) {
@@ -13,13 +14,14 @@ class Class extends Component {
     this.state = {
       postList: [],
       classList: [],
-      class: localStorage.getItem("Class") || this.props.location.state.dept + this.props.location.state.course,
+      class: localStorage.getItem("Class") || this.props.location.state.dept + " " + this.props.location.state.course,
       name: "",
       postComment: "",
     };
     console.log(this.props.location.state)
   }  
 
+  
   renderPost = () => {
     this.refreshPosts();
     return this.state.postList.map(Posts => (
@@ -45,14 +47,13 @@ class Class extends Component {
       .catch(err => console.log(err));
   };
   
-
-
   refreshPosts = () => {
     axios
-      .get("http://localhost:8000/api/Posts/")
+      .get("http://localhost:8000/api/Posts/", { params: {Classes: this.state.class } })
       .then(res => this.setState({ postList: res.data }))
       .catch(err => console.log(err));
   };
+  
 
   handleName = (event) => {
     console.log("handleName: " + event.target.value)
@@ -64,9 +65,10 @@ class Class extends Component {
   }
 
   handlePost = Posts => {
-    this.setState({class: this.state.class})
+    //this.setState({class: this.state.class})
     console.log("handlePost: " + this.state.name + "- " + this.state.postComment)
     
+    /*
     axios
       .post("http://localhost:8000/api/Posts/", 
       {
@@ -74,6 +76,16 @@ class Class extends Component {
         name: String(this.state.name),
         contents: String(this.state.postComment),
         Classes: 1, //this.state.class
+      })
+      .then(res => this.refreshPosts())
+      .catch(err => console.log("handlePost error: " + err));
+    */
+    axios
+      .post("http://localhost:8000/api/Posts/", 
+      {
+        name: String(this.state.name),
+        contents: String(this.state.postComment),
+        Classes: this.state.class,
       })
       .then(res => this.refreshPosts())
       .catch(err => console.log("handlePost error: " + err));
@@ -110,9 +122,7 @@ class Class extends Component {
                   <Button variant="primary" type="submit">
                     Submit
                   </Button>
-                </Form>
-                  
-                
+                </Form>    
               </div>
               <div >
               {this.renderPost()}

@@ -38,7 +38,7 @@ function Home(props) {
         console.log(selected)
         console.log("Selected 2: " + selected2)
         console.log("Final course: " + selected + selected2)
-        localStorage.setItem("Class", selected + selected2)
+        localStorage.setItem("Class", selected + " " + selected2)
         history.push("/class", { dept: selected, course: selected2 })
         
      };
