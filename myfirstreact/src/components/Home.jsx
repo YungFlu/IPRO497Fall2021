@@ -3,6 +3,7 @@ import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import Class from "./Class";
 import {Link} from 'react-router-dom';
+import "../home.scss" 
 
 function Home(props) {
 
@@ -75,50 +76,57 @@ function Home(props) {
      if (type) {
        options = type.map((el) => <option key={el}>{el}</option>);
      }
-     
+     const customStyles = {
+      option: (provided, state) => ({
+        ...provided,
+        borderBottom: '1px dotted pink',
+        color: state.isSelected ? 'red' : 'blue',
+        padding: 20,
+      }),
+      control: () => ({
+        // none of react-select's styles are passed to <Control />
+        width: 200,
+      }),
+      singleValue: (provided, state) => {
+        const opacity = state.isDisabled ? 0.5 : 1;
+        const transition = 'opacity 300ms';
+    
+        return { ...provided, opacity, transition };
+      }
+    }
+    
 
   return (
-    <div className="home">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-7">
-            <img
-              class="img-fluid rounded mb-4 mb-lg-0"
-              src="https://dz0zjhi21dz2t.cloudfront.net/media/96121/tour/1558123816200/1366_front.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">What course are you interested in? </h1>
+    
+    <div class="home">
+          <h1 class="font-weight-light">What course are you interested in? </h1>
+<div class="dropdown">
+<form>
+  <div>
+    <select id = "DeptList" onChange={changeSelectOptionHandler}>
+      <option>Choose...</option>
+      <option>CS</option>
+      <option>MATH</option>
+      <option>IPRO</option>
+    </select>
+    <select id = "ClassList" onChange={finalSelectHandler}>
+      {
+        options
+      }
+      {console.log("Options = " + options)}
+    </select>    
+  </div>
+  <div>
+    <button onClick={handleClick}>
+      See Class
+    </button>
+  </div>
+</form>
+</div>
+      <div id= "background">
 
-            <form>
-              <div>
-                <select id = "DeptList" onChange={changeSelectOptionHandler}>
-                  <option>Choose...</option>
-                  <option>CS</option>
-                  <option>MATH</option>
-                  <option>IPRO</option>
-                </select>
-              </div>
-              <div>
-                <select onChange={finalSelectHandler}>
-                  {
-                    options
-                  }
-                  {console.log("Options = " + options)}
-                </select>    
-              </div>
-              <div>
-                <button onClick={handleClick}>
-                  See Class
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
       </div>
     </div>
-    
   );
 }
 
