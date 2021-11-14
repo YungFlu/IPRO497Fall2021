@@ -49,8 +49,8 @@ class Class extends Component {
   
   refreshPosts = () => {
     axios
-      .get("http://localhost:8000/api/Posts/", { params: {Classes: this.state.class } })
-      .then(res => this.setState({ postList: res.data }))
+      .get("http://localhost:8000/api/Posts/")
+      .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class) }))
       .catch(err => console.log(err));
   };
   
@@ -122,21 +122,14 @@ class Class extends Component {
                   <Button variant="primary" type="submit">
                     Submit
                   </Button>
-<<<<<<< HEAD
-                </Form>    
-              </div>
-              <div >
-              {this.renderPost()}
-=======
                 </Form>
->>>>>>> 066f35482cc9020e71f65bc9e572ccd975b8cbca
               </div>
           </div>
         </div>
       </div>
       <section >
-    {this.renderPost()}
-    </section>
+      {this.renderPost()}
+      </section>
     </div>
     );
   }

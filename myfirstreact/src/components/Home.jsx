@@ -3,7 +3,7 @@ import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import Class from "./Class";
 import {Link} from 'react-router-dom';
-import "../home.scss" 
+//import "../home.scss" 
 
 function Home(props) {
 
