@@ -14,7 +14,7 @@ class Class extends Component {
     this.state = {
       postList: [],
       classList: [],
-      class: localStorage.getItem("Class") || this.props.location.state.dept + " " + this.props.location.state.course,
+      class: localStorage.getItem("Class") || this.props.location.state.selectedCourse, //this.props.location.state.dept + " " + this.props.location.state.course,
       name: "",
       postComment: "",
     };
@@ -128,7 +128,7 @@ class Class extends Component {
         </div>
       </div>
       <section >
-      {this.renderPost()}
+        {this.renderPost()}
       </section>
     </div>
     );

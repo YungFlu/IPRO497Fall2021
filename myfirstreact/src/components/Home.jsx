@@ -1,12 +1,62 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import Class from "./Class";
 import { Link } from 'react-router-dom';
 import "../home.scss"
+import axios from "axios";
+
+function AllClasses(props){
+  console.log("Classes: " + props.class)
+  
+  const displayClasses = (props) => {
+    const {classes1} = props;
+    //console.log(classes)
+    return(
+      classes1.map((classess, index) => {
+        console.log("Class department: " + classess);
+        return(
+          <div className="courseCode">
+            {classess.courseCode}
+          </div>
+        )
+      })
+    )
+  }
+  return(
+    <>
+      {displayClasses(props.class)}
+    </>
+  )
+}
 
 function Home(props) {
 
+  const [classes, getClasses] = useState("")
+
+  useEffect(() => {
+    getAllClasses();
+  }, []);
+
+  const getAllClasses = () => {
+    axios
+      .get("http://localhost:8000/api/Classes/")
+      .then((res) => {
+        const allClasses = res.data;
+        //console.log("allClasses: " + allClasses)
+        getClasses(allClasses);
+      })
+      .catch(err => console.log(err));
+  }
+
+  console.log("Classes in console: " + classes)
+  const fullCourseList = [];
+  for (let i = 0; i < classes.length; i++){
+    //console.log(classes[i].courseCode)
+    fullCourseList.push(classes[i].courseCode)
+  }
+  console.log("fullCourseList: " + fullCourseList)
+  
   let history = useHistory();
   /** "selected" here is state variable which will hold the
   * value of currently selected dropdown.
@@ -97,10 +147,11 @@ function Home(props) {
 
 
   return (
+    
     <div>
     <div class="home" >
-      <h1 class="font-weight-light">What course are you interested in? </h1>
-
+      <h1 class="font-weight-light">Select a class to get started.</h1>
+      
       <div class="dropdown">
         <form>
           <div>
@@ -119,6 +170,7 @@ function Home(props) {
             <button onClick={handleClick}>
               See Class
             </button>
+            
             </div>
         </form>
       </div>
