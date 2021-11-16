@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
-import Class from "./Class";
-import { Link } from 'react-router-dom';
 import "../home.scss"
 import axios from "axios";
+import Select from 'react-select';
+import styled from "styled-components";
+
 
 function Home(props) {
 
@@ -58,25 +58,44 @@ function Home(props) {
 
   };
 
-  const customStyles = {
+  const dropdownStyles = {
+    container: base => ({
+      ...base,
+      flex: 1,
+      width: 250
+    }),
     option: (provided, state) => ({
       ...provided,
-      borderBottom: '1px dotted pink',
-      color: state.isSelected ? 'red' : 'blue',
-      padding: 20,
+      width: 230
     }),
-    control: () => ({
-      // none of react-select's styles are passed to <Control />
-      width: 200,
-    }),
-    singleValue: (provided, state) => {
-      const opacity = state.isDisabled ? 0.5 : 1;
-      const transition = 'opacity 300ms';
+    control: base => ({
+      ...base,
+      height: 40,
+      minHeight: 35,
+      width: 250
+    })            
 
-      return { ...provided, opacity, transition };
-    }
+  };
+
+  const Button = styled.button`
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    padding: 5px 35px;
+    border-radius: 0px;
+    margin: 10px 0px;
+    cursor: pointer;
+  `;
+
+  let options2 = null;
+  if (fullCourseList){
+    options2 = fullCourseList.map((el) => ({label: el, value: el}));
   }
 
+  const finalSelectHandler2 = (label, value) => {
+    setSelected(label);
+    //console.log("finalSelect: " + event.target.value.label)
+  };
 
   return (
     
@@ -87,15 +106,20 @@ function Home(props) {
       <div class="dropdown">
         <form>
           <div>
-            <select id="DeptList" onChange={finalSelectHandler}>
-              {options}
-            </select>
-            <button onClick={handleClick}>
-              See Class
-            </button>
+            <Select
+              placeholder="Select a course code..."
+              styles={dropdownStyles}
+              options={options2}
+              onChange={opt => finalSelectHandler2(opt.label, opt.value)}
+            />
             
-            </div>
+          </div>
         </form>
+      </div>
+      <div class = "button">
+        <Button onClick={handleClick}>
+          See Class
+        </Button>
       </div>
     </div>
     <div></div>

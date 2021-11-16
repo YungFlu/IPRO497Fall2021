@@ -4,9 +4,8 @@ import { useHistory, useLocation, withRouter } from "react-router-dom";
 import axios from "axios";
 import Home from "./Home"
 import "../styles.scss" 
-import QueryString from "query-string";
 import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import { nominalTypeHack } from "prop-types";
+
 
 class Class extends Component {
   constructor(props) {
@@ -114,10 +113,7 @@ class Class extends Component {
                   </Form.Group>
                   <Form.Group className="mb-3" controlId="formBasicPassword">
                   
-                    <textarea placeholder="Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
-                  </Form.Group>
-                  <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Anonymous" />
+                    <textarea placeholder="  Enter Comment" onChange = {e => this.setState({ postComment: e.target.value })}/>
                   </Form.Group>
                   <Button variant="primary" type="submit">
                     Submit
