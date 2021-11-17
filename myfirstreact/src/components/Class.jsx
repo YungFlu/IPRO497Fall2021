@@ -38,6 +38,24 @@ class Class extends Component {
       </div>
     ));
   };
+
+  renderPost2 = () => {
+    this.refreshPosts2();
+    return this.state.postList.map(Posts => (
+      <div className="divStyle">
+        <h4 key = {Posts.id}>
+          <span  title = {Posts.name}>
+                {Posts.name}
+          </span>
+        </h4>
+        <h5 key = {Posts.id}>
+          <p title = {Posts.contents}>
+            {Posts.contents}
+          </p>
+        </h5>
+      </div>
+    ));
+  };
   
   refreshClasses = () => {
     axios
@@ -52,7 +70,21 @@ class Class extends Component {
       .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class) }))
       .catch(err => console.log(err));
   };
-  
+
+  refreshPosts2 = () => {
+    axios
+      .get("http://localhost:8000/api/Posts/")
+      .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class)},
+      () => {
+        if (this.state == this.state.postList){
+          this.setState({ enabled: false })
+        }else{
+          this.setState({ enabled: true })
+        }
+      }))
+      .catch(err => console.log(err));
+  };
+
 
   handleName = (event) => {
     console.log("handleName: " + event.target.value)
@@ -66,19 +98,6 @@ class Class extends Component {
   handlePost = Posts => {
     //this.setState({class: this.state.class})
     console.log("handlePost: " + this.state.name + "- " + this.state.postComment)
-    
-    /*
-    axios
-      .post("http://localhost:8000/api/Posts/", 
-      {
-        id: Math.floor(Math.random() * 10000 + 2),
-        name: String(this.state.name),
-        contents: String(this.state.postComment),
-        Classes: 1, //this.state.class
-      })
-      .then(res => this.refreshPosts())
-      .catch(err => console.log("handlePost error: " + err));
-    */
     axios
       .post("http://localhost:8000/api/Posts/", 
       {
