@@ -19,20 +19,20 @@ function Home(props) {
       .get("http://localhost:8000/api/Classes/")
       .then((res) => {
         const allClasses = res.data;
-        console.log("allClasses: " + allClasses)
+        //console.log("allClasses: " + allClasses)
         getClasses(allClasses);
       })
       .catch(err => console.log(err));
   }
 
 
-  console.log("Classes in console: " + classes)
+  //console.log("Classes in console: " + classes)
   const fullCourseList = [];
   for (let i = 0; i < classes.length; i++){
     //console.log(classes[i].courseCode)
     fullCourseList.push(classes[i].courseCode)
   }
-  console.log("fullCourseList: " + fullCourseList)
+  //console.log("fullCourseList: " + fullCourseList)
 
   let options = null;
   if (fullCourseList){
@@ -48,13 +48,13 @@ function Home(props) {
   
   const finalSelectHandler = (event) => {
     setSelected(event.target.value);
-    console.log("finalSelect: " + event.target.value)
+    //console.log("finalSelect: " + event.target.value)
   };
 
   const handleClick = () => {
     //getAllPostsForClass();
     //console.log("allPosts2: " + String(classPosts))
-    console.log("Final course: " + selected)
+    //("Final course: " + selected)
     localStorage.setItem("Class", selected)
     //localStorage.setItem("Posts", String(classPosts))
     //history.push("/class", { dept: selected, course: selected2 })
