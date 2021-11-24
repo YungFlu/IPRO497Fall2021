@@ -6,23 +6,33 @@ import Home from "./Home"
 import "../styles.scss" 
 import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 
-
 class Class extends Component {
   constructor(props) {
     super(props);
     this.state = {
       postList: [],
+      oldPostList: [1],
       classList: [],
       class: localStorage.getItem("Class") || this.props.location.state.selectedCourse, //this.props.location.state.dept + " " + this.props.location.state.course,
       name: "",
       postComment: "",
     };
     console.log(this.props.location.state)
+    //console.log("POSTLIST FROM HOME3: " + this.state.postList)
   }  
-
   
+  //////////// START TESTING AREA /////////////
+
   renderPost = () => {
-    this.refreshPosts();
+    //this.state.postList = PostList;
+    if (this.state.postList.length !== this.state.oldPostList.length){
+      //console.log("THE POSTS ARE NOT EQUAL TO EACH OTHER")
+      //console.log("OLD POST LIST: " + this.state.oldPostList.length)
+      //console.log("NEW POST LIST: " + this.state.postList.length)
+      this.state.oldPostList = this.state.postList;
+      this.refreshPosts();
+    }
+    
     return this.state.postList.map(Posts => (
       <div className="divStyle">
         <h4 key = {Posts.id}>
@@ -39,24 +49,17 @@ class Class extends Component {
     ));
   };
 
-  renderPost2 = () => {
-    this.refreshPosts2();
-    return this.state.postList.map(Posts => (
-      <div className="divStyle">
-        <h4 key = {Posts.id}>
-          <span  title = {Posts.name}>
-                {Posts.name}
-          </span>
-        </h4>
-        <h5 key = {Posts.id}>
-          <p title = {Posts.contents}>
-            {Posts.contents}
-          </p>
-        </h5>
-      </div>
-    ));
+  refreshPosts = () => {
+    axios
+      .get("http://localhost:8000/api/Posts/")
+      .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class) }))
+      .catch(err => console.log(err));
+
+    
   };
-  
+
+  ////////// END TESTING AREA //////////
+
   refreshClasses = () => {
     axios
       .get("http://localhost:8000/api/Classes/")
@@ -64,27 +67,6 @@ class Class extends Component {
       .catch(err => console.log(err));
   };
   
-  refreshPosts = () => {
-    axios
-      .get("http://localhost:8000/api/Posts/")
-      .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class) }))
-      .catch(err => console.log(err));
-  };
-
-  refreshPosts2 = () => {
-    axios
-      .get("http://localhost:8000/api/Posts/")
-      .then(res => this.setState({ postList: res.data.filter(classNum => classNum.Classes === this.state.class)},
-      () => {
-        if (this.state == this.state.postList){
-          this.setState({ enabled: false })
-        }else{
-          this.setState({ enabled: true })
-        }
-      }))
-      .catch(err => console.log(err));
-  };
-
 
   handleName = (event) => {
     console.log("handleName: " + event.target.value)

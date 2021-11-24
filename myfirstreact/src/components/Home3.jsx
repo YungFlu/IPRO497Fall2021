@@ -19,11 +19,12 @@ function Home(props) {
       .get("http://localhost:8000/api/Classes/")
       .then((res) => {
         const allClasses = res.data;
-        //console.log("allClasses: " + allClasses)
+        console.log("allClasses: " + allClasses)
         getClasses(allClasses);
       })
       .catch(err => console.log(err));
   }
+
 
   console.log("Classes in console: " + classes)
   const fullCourseList = [];
@@ -51,10 +52,13 @@ function Home(props) {
   };
 
   const handleClick = () => {
+    //getAllPostsForClass();
+    //console.log("allPosts2: " + String(classPosts))
     console.log("Final course: " + selected)
     localStorage.setItem("Class", selected)
+    //localStorage.setItem("Posts", String(classPosts))
     //history.push("/class", { dept: selected, course: selected2 })
-    history.push("/class", { selectedCourse: selected })
+    history.push("/class", { selectedCourse: selected}) //, classPosts: classPosts })
 
   };
 
