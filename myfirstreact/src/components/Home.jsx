@@ -4,6 +4,7 @@ import "../home.scss"
 import axios from "axios";
 import Select from 'react-select';
 import styled from "styled-components";
+import { delay } from "q";
 
 
 function Home(props) {
@@ -25,13 +26,16 @@ function Home(props) {
       .catch(err => console.log(err));
   }
 
-
   //console.log("Classes in console: " + classes)
   const fullCourseList = [];
+  const fullDescList = [];
   for (let i = 0; i < classes.length; i++){
     //console.log(classes[i].courseCode)
     fullCourseList.push(classes[i].courseCode)
+    fullDescList.push(classes[i].courseDesc)
+    
   }
+
   //console.log("fullCourseList: " + fullCourseList)
 
   let options = null;
@@ -51,14 +55,20 @@ function Home(props) {
     //console.log("finalSelect: " + event.target.value)
   };
 
+  
+
   const handleClick = () => {
-    //getAllPostsForClass();
-    //console.log("allPosts2: " + String(classPosts))
-    //("Final course: " + selected)
+    for (let i = 0; i < fullCourseList.length; i++){
+      if (selected === fullCourseList[i]){
+        console.log("Desc found!" + fullDescList[i])
+        localStorage.setItem("courseDesc", fullDescList[i])
+        //console.log("COURSE DESC: " + localStorage.getItem("courseDesc"))
+        break;
+      }
+    }
     localStorage.setItem("Class", selected)
-    //localStorage.setItem("Posts", String(classPosts))
     //history.push("/class", { dept: selected, course: selected2 })
-    history.push("/class", { selectedCourse: selected}) //, classPosts: classPosts })
+    history.push("/class", { selectedCourse: selected, selectedDesc: localStorage.getItem("courseDesc") }) //, classPosts: classPosts })
 
   };
 

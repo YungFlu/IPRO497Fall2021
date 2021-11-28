@@ -16,8 +16,10 @@ class Class extends Component {
       class: localStorage.getItem("Class") || this.props.location.state.selectedCourse, //this.props.location.state.dept + " " + this.props.location.state.course,
       name: "",
       postComment: "",
+      classDesc: localStorage.getItem("courseDesc") || this.props.location.state.selectedDesc || ""
     };
     console.log(this.props.location.state)
+    //console.log("localStorage courseDesc: " + localStorage.getItem("courseDesc"))
     //console.log("POSTLIST FROM HOME3: " + this.state.postList)
   }  
   
@@ -120,6 +122,9 @@ class Class extends Component {
                     Submit
                   </Button>
                 </Form>
+              </div>
+              <div class = "courseDesc">
+                {this.state.classDesc}
               </div>
           </div>
         </div>
