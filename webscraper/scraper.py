@@ -41,38 +41,7 @@ this third dictonary is all of the details for that class, its name, description
 
 {department : {Classes:{class details : someString}}}
 '''
-suffix=""
-my_json_obj = {}
 
-dummy = {"CS":"/courses/cs/"}
-
-## todo: replace dummy with dpt endpoints 
-'''
-for dpt in dummy: 
-    suffix = dummy.get(dpt)
-    goto = domain+suffix
-
-    result = requests.get(goto)
-    print(result.status_code)
-    src = result.content
-    soup = BeautifulSoup(src, features="html.parser")
-'''
-suffix = dummy.get("CS")
-goto = domain+suffix
-print(goto)
-
-result = requests.get(goto)
-print(result.status_code)
-
-src = result.content
-soup = BeautifulSoup(src, features="html.parser")
-courseblocks = soup.find_all("div", {"class":"courseblock"})
-#print(courseblocks)
-
-
-#code = courseblocks[0].find("div", {"class":"noindent coursecode"})
-#print(code.text)
-#s = code.text
 departments_dict = {
     "AS":"Air Force Aerospace Studies",
     "AURB":"Architecture and Urbanism",
@@ -106,14 +75,14 @@ departments_dict = {
     "IPMM":"Intellectual Prop Mgt and Mkts",
     "IPRO":"Interprofessional Project",
     "ITMD":"ITM Development",
-    "IDMM":"ITM Management",
+    "ITMM":"ITM Management",
     "ITMO":"ITM Operations",
-    "ITSMS":"ITM Security",
+    "ITMS":"ITM Security",
     "ITMT":"ITM Theory and Technology",
     "LA":"Landscape Architecture",
-    "UG-LCHS":"Lewis College",
+    "LCHS":"Lewis College",
     "LIT":"Literature",
-    "MCS":"Management Science",
+    "MSC":"Management Science",
     "MAX":"Marketing Analytics",
     "MSF":"Master of Science in Finance",
     "MS":"Materials Science",
@@ -135,39 +104,77 @@ departments_dict = {
     "SMGT":"Sustainability Management",
     "TECH":"Technology"
 }
-
 def getDept(classCode):
     start_idx = classCode.index(" ")
     return classCode[:start_idx]
 
-
 classes=[]
 
-for courseblock in courseblocks:
-    thing = {}
-    fields = {}
+suffix=""
+my_json_obj = {}
 
-    code = courseblock.find("div", {"class":"noindent coursecode"})
-    codestring = code.text.replace(u'\xa0', u' ')
-    department = departments_dict[getDept(codestring)]
-    title = courseblock.find("div", {"class":"noindent coursetitle"})
-    desc = courseblock.find("div", {"class":"courseblockdesc"})
-    creds = courseblock.find("div", {"class":"noindent courseblockattr hours"})
-    prereqs = courseblock.find("div", {"class":"noindent courseblockattr"})
+dummy = {"CS":"/courses/cs/"}
 
-    fields.update({"courseCode":codestring})
-    fields.update({"department":department})
-    fields.update({"courseTitle":title.text.replace(u'\xa0', u' ')})
-    fields.update({"courseDesc":desc.text.replace(u'\xa0', u' ')})
-    fields.update({"courseCreds":title.text.replace(u'\xa0', u' ')})
-    if(prereqs != None and "Prerequisite(s)" in prereqs.text):
-        fields.update({"coursePrereqs":prereqs.text.replace(u'\xa0', u' ')})
-    else:
-        fields.update({"coursePrereqs":"No Prerequisites"})
-    
-    thing.update({"model":"api.Classes"})
-    thing.update({"fields":fields})
-    classes.append(thing)
+## todo: replace dummy with dpt endpoints 
+'''
+for dpt in dummy: 
+    suffix = dummy.get(dpt)
+    goto = domain+suffix
+
+    result = requests.get(goto)
+    print(result.status_code)
+    src = result.content
+    soup = BeautifulSoup(src, features="html.parser")
+'''
+
+#print(courseblocks)
+
+
+#code = courseblocks[0].find("div", {"class":"noindent coursecode"})
+#print(code.text)
+#s = code.text
+#for dpt in dpt_endpoints:
+#    print(dpt)
+#    print(type(dpt))
+
+
+for dpt in dpt_endpoints:
+
+    suffix = dpt_endpoints.get(dpt)
+    goto = domain+suffix
+    print(goto)
+
+    result = requests.get(goto)
+    print(result.status_code)
+
+    src = result.content
+    soup = BeautifulSoup(src, features="html.parser")
+    courseblocks = soup.find_all("div", {"class":"courseblock"})
+    for courseblock in courseblocks:
+        thing = {}
+        fields = {}
+
+        code = courseblock.find("div", {"class":"noindent coursecode"})
+        codestring = code.text.replace(u'\xa0', u' ')
+        department = departments_dict[getDept(codestring)]
+        title = courseblock.find("div", {"class":"noindent coursetitle"})
+        desc = courseblock.find("div", {"class":"courseblockdesc"})
+        creds = courseblock.find("div", {"class":"noindent courseblockattr hours"})
+        prereqs = courseblock.find("div", {"class":"noindent courseblockattr"})
+
+        fields.update({"courseCode":codestring})
+        fields.update({"department":department})
+        fields.update({"courseTitle":title.text.replace(u'\xa0', u' ')})
+        fields.update({"courseDesc":desc.text.replace(u'\xa0', u' ')})
+        fields.update({"courseCreds":title.text.replace(u'\xa0', u' ')})
+        if(prereqs != None and "Prerequisite(s)" in prereqs.text):
+            fields.update({"coursePrereqs":prereqs.text.replace(u'\xa0', u' ')})
+        else:
+            fields.update({"coursePrereqs":"No Prerequisites"})
+
+        thing.update({"model":"api.Classes"})
+        thing.update({"fields":fields})
+        classes.append(thing)
 
 
 #filename = os.path.join (os.getcwd(), "..", "CS_dpt.json")
