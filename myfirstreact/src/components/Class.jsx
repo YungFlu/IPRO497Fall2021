@@ -5,6 +5,7 @@ import axios from "axios";
 import Home from "./Home"
 import "../styles.scss" 
 import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import insider from '../insider_platform_1.png';
 
 class Class extends Component {
   constructor(props) {
@@ -102,6 +103,11 @@ class Class extends Component {
     <div className="class">
       <div class="container">
         <div class="row align-items-center my-5">
+          <div class="insiders"> <img src={insider} alt="Logo" /> </div>
+        <div class = "courseDesc">
+        <p id="Course Desc"> <b>{this.state.class} Class Description</b></p> 
+                {this.state.classDesc}
+        </div>
           <div class="col-lg-5">
             <h1 id="Course Title" class="font-weight-light">{this.state.class}</h1> 
               <div>
@@ -122,9 +128,6 @@ class Class extends Component {
                     Submit
                   </Button>
                 </Form>
-              </div>
-              <div class = "courseDesc">
-                {this.state.classDesc}
               </div>
           </div>
         </div>

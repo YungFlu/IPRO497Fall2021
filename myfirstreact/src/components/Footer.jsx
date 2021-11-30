@@ -3,7 +3,7 @@ import "../styles.scss"
 
 function Footer() {
   return (
-      <footer class="py-5 bg-danger fixed-bottom">
+      <footer class="py-5 bg-danger ">
         <div class="container">
           <p class="m-0 text-center text-white">
             Copyright &copy; IIT Insider Platform 2021
