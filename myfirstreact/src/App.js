@@ -25,7 +25,7 @@ export default function App () {
           <Route path="/about" exact component={() => <About />} />
           <Route path="/class" exact component={() => <Class />} />
         </Switch>
-        <Footer />
+        
       </Router>
       
 

@@ -6,6 +6,7 @@ import Home from "./Home"
 import "../styles.scss" 
 import {Form, Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import insider from '../insider_platform_1.png';
+import Footer from "./Footer"
 
 class Class extends Component {
   constructor(props) {
@@ -135,6 +136,7 @@ class Class extends Component {
       <section >
         {this.renderPost()}
       </section>
+      <Footer class = "classfooter"/>
     </div>
     );
   }

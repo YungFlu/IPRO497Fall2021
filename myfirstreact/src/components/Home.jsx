@@ -5,7 +5,7 @@ import axios from "axios";
 import Select from 'react-select';
 import styled from "styled-components";
 import { delay } from "q";
-
+import Footer from './Footer'
 
 function Home(props) {
 
@@ -58,6 +58,9 @@ function Home(props) {
   
 
   const handleClick = () => {
+    if (selected === ""){
+      return;
+    }
     for (let i = 0; i < fullCourseList.length; i++){
       if (selected === fullCourseList[i]){
         console.log("Desc found!" + fullDescList[i])
@@ -139,7 +142,7 @@ function Home(props) {
     <div></div>
     <div></div>
     <div></div>
-
+    <Footer class = "home"/>
     </div>
   );
 }

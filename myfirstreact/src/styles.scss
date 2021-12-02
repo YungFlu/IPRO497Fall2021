@@ -5,10 +5,14 @@
     background-color: #F4F4F4;
     box-shadow: 8px 8px 10px 1px #78747c;
 }
+
 footer{
-    position: relative;
-    margin-top: 125px;
+    position: fixed;
+    left:0;
+    bottom:0;
+    right:0;
 }
+
 textarea{
     width: 500px;
     height: 150px;
@@ -40,4 +44,9 @@ div.insiders img{
     width:150px;
     position: absolute;
     margin: 0px 0px 0px 840px;
+}
+
+.btn-primary{
+    background-color: #ff0000;
+    border-color: #ff0000;
 }

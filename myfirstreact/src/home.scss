@@ -4,9 +4,10 @@ div#background{
 div.home{
     position:relative;
     margin:0px 0px 0px 0px;
-    background-image: url("https://dz0zjhi21dz2t.cloudfront.net/media/96121/tour/1558123816200/1366_front.jpg");
+    background-image: url("https://news.wttw.com/sites/default/files/styles/full/public/article/image-non-gallery/IIT%20Gift_1025.jpg?itok=5wnNOMFb"); //url('insider_platform_1.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
+    background-position: center;
     height: 835px;
 }
 
@@ -27,5 +28,11 @@ div.button{
     margin-left: 46%
 }
 
+footer.home{
+    position: fixed;
+    left:0;
+    bottom:0;
+    right:0;
+}
 
 
